@@ -1,0 +1,45 @@
+.login, .register {
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.actions {
+  margin: 1rem
+}
+
+.span-btn {
+  color: #000;
+  cursor: pointer;
+}
+
+.span-btn:hover {
+  color: #528d93;
+}
+
+.img-wrapper {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

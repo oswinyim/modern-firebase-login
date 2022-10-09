@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+
+import LoginAndRegister from "./components/LoginAndRegister/LoginAndRegister";
+import Home from "./components/Home/Home";
+import MainHeader from "./components/MainHeader/MainHeader";
+import AuthContext from "./store/auth-context";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
+  const ctx = useContext(AuthContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <MainHeader />
+      <main>
+        <Routes>
+          (
+          {!ctx.isLoggedIn && (
+            <Route path="/login" element={<LoginAndRegister />} />
+          )}
+          )
+          <Route path="/home" element={<Home />} />
+          <Route path="/*" element={<LoginAndRegister />} />
+        </Routes>
+      </main>
+    </Router>
   );
 }
 
