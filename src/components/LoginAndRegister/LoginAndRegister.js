@@ -14,6 +14,7 @@ import Input from "../UI/Input/Input";
 import classes from "./LoginAndRegister.module.css";
 import { useNavigate } from "react-router-dom";
 import logo from "../../logo.svg";
+import UIContext from "../../store/ui-context";
 
 const ACTION_USER_INPUT = "USER_INPUT";
 const ACTION_INPUT_BLUR = "INPUT_BLUR";
@@ -77,6 +78,7 @@ const LoginAndRegister = (props) => {
   });
 
   const authCtx = useContext(AuthContext);
+  const uiCtx = useContext(UIContext);
 
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
@@ -86,7 +88,10 @@ const LoginAndRegister = (props) => {
     if (authCtx.isLoggedIn) {
       navigate("/home");
     }
-  }, [authCtx.isLoggedIn, navigate]);
+    if (uiCtx.error) {
+      alert(uiCtx.error);
+    }
+  }, [authCtx.isLoggedIn, uiCtx.error, navigate]);
 
   const { isValid: emailIsValid } = emailState;
   const { isValid: passwordIsValid } = passwordState;
@@ -95,7 +100,7 @@ const LoginAndRegister = (props) => {
   useEffect(() => {
     const identifier = setTimeout(() => {
       setFormIsValid(emailIsValid && passwordIsValid);
-    }, 500);
+    }, 300);
 
     return () => {
       clearTimeout(identifier);
@@ -108,8 +113,6 @@ const LoginAndRegister = (props) => {
 
   const passwordChangeHandler = (event) => {
     dispatchPassword({ type: ACTION_USER_INPUT, val: event.target.value });
-
-    // setFormIsValid(emailState.isValid && event.target.value.trim().length > 6);
   };
 
   const validateEmailHandler = () => {
@@ -123,8 +126,18 @@ const LoginAndRegister = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     if (formIsValid) {
-      authCtx.onLogin(emailState.value, passwordState.value);
-      navigate("/home");
+      if (isLogin) {
+        authCtx.onLogin({
+          email: emailState.value,
+          password: passwordState.value,
+        });
+        navigate("/home");
+      } else {
+        authCtx.onSignup({
+          email: emailState.value,
+          password: passwordState.value,
+        });
+      }
     } else if (!emailIsValid) {
       emailInputRef.current.focus();
     } else {
@@ -162,7 +175,7 @@ const LoginAndRegister = (props) => {
             errorMessage={passwordState.errorMessage}
           />
           <div className={classes.actions}>
-            <Button type="submit" className={classes.btn}>
+            <Button disabled={uiCtx.isLoading} type="submit">
               {isLogin && "Login"}
               {!isLogin && "Register"}
             </Button>
