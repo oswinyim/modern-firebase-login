@@ -37,10 +37,12 @@ export const AuthContextProvider = (props) => {
     setError(error);
   }, [isLoading, error, setIsLoading, setError]);
 
+  const apiKey = process.env.REACT_APP_API_KEY
+
   const loginHandler = async (props) => {
     await sendRequest(
       {
-        url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDhGcSJwJkap9k4kAdE14tOlSpqkJksc0I",
+        url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + apiKey,
         method: "POST",
         body: {
           email: props.email,
@@ -72,7 +74,7 @@ export const AuthContextProvider = (props) => {
   const singUpHandler = async (props) => {
     await sendRequest(
       {
-        url: "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDhGcSJwJkap9k4kAdE14tOlSpqkJksc0I",
+        url: "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + apiKey,
         method: "POST",
         body: {
           email: props.email,
