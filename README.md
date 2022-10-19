@@ -1,4 +1,6 @@
 Sample: https://simple-react-auth-with-firebase-two.vercel.app/
+<img width="1133" alt="simple-login-with-firebase" src="https://user-images.githubusercontent.com/67218011/196782637-91b5ce24-c37f-4ca2-921b-e84349debcfc.png">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
