@@ -19,14 +19,9 @@
   color: #528d93;
 }
 
-.img-wrapper {
-  text-align: center;
-}
-
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
-  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
