@@ -1,18 +1,37 @@
-Sample: https://simple-react-auth-with-firebase-two.vercel.app/
-<img width="1133" alt="simple-login-with-firebase" src="https://user-images.githubusercontent.com/67218011/196782637-91b5ce24-c37f-4ca2-921b-e84349debcfc.png">
+## Table of contents
 
-# Getting Started with Create React App
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+Modern login page with firebase auth.
 
-## Available Scripts
+### Screenshot
+<img width="412" alt="CleanShot 2022-11-13 at 22 58 11@2x" src="https://user-images.githubusercontent.com/67218011/201572271-3865019e-91e7-4c2f-9c44-d7a977128d1b.png">
+<img width="1489" alt="CleanShot 2022-11-13 at 22 57 48@2x" src="https://user-images.githubusercontent.com/67218011/201572280-acaa5c37-78fe-4d8a-8020-9d874c3eb409.png">
 
-In the project directory, you can run with firebase API key:
 
-### `REACT_APP_API_KEY=[API_KEY] npm start`
+### Links
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Live Site URL: [https://modern-firebase-login.vercel.app/](https://modern-firebase-login.vercel.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flex box
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- UseContext
+- Custom Hook - useHttp
+
+## Author
+
+- Website - [https://oswinyim.com/](https://oswinyim.com/)
+- Frontend Mentor - [@oswinyim](https://www.frontendmentor.io/profile/oswinyim)
