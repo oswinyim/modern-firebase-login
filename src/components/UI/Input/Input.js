@@ -22,21 +22,24 @@ const Input = React.forwardRef((props, ref) => {
           props.isValid === false ? classes.invalid : ""
         }`}
       >
-        <label htmlFor={props.id}>{props.label}</label>
+        <span className={`material-icons ${classes.icon}`}>
+          {props.iconName}
+        </span>
         <input
+          className={classes.input}
           ref={inputRef}
           type={props.type}
           id={props.id}
           value={props.value}
+          placeholder={props.placeholder}
+          required={props?.required || false}
           onChange={props.onChange}
           onBlur={props.onBlur}
         />
       </div>
 
       {props.errorMessage && (
-        <div className={classes['error-message']}>
-          {props.errorMessage}
-        </div>
+        <div className={classes["error-message"]}>{props.errorMessage}</div>
       )}
     </Fragment>
   );

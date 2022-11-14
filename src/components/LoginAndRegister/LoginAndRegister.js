@@ -13,8 +13,9 @@ import AuthContext from "../../store/auth-context";
 import Input from "../UI/Input/Input";
 import classes from "./LoginAndRegister.module.css";
 import { useNavigate } from "react-router-dom";
-import logo from "../../logo.svg";
+import logo from "../../assets/logo.png";
 import UIContext from "../../store/ui-context";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
 
 const ACTION_USER_INPUT = "USER_INPUT";
 const ACTION_INPUT_BLUR = "INPUT_BLUR";
@@ -151,29 +152,43 @@ const LoginAndRegister = (props) => {
         <div className={classes["img-wrapper"]}>
           <img src={logo} className={classes["App-logo"]} alt="logo" />
         </div>
-        <form onSubmit={submitHandler}>
+        <h1 className={classes.h1}>Modern Login</h1>
+        <h2 className={classes.h2}>Please Register and then Login</h2>
+
+        <form className={classes.form} onSubmit={submitHandler}>
           <Input
             ref={emailInputRef}
             id="email"
-            label="E-Mail"
             type="email"
             isValid={emailIsValid}
             value={emailState.value}
+            iconName="mail"
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
+            placeholder="Enter Email"
+            required={true}
             errorMessage={emailState.errorMessage}
           />
           <Input
             ref={passwordInputRef}
             id="password"
-            label="Password"
             type="password"
+            placeholder="Enter Password"
+            required={true}
+            iconName="lock"
             isValid={passwordIsValid}
             value={passwordState.value}
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
             errorMessage={passwordState.errorMessage}
           />
+          <div className={classes["other-section"]}>
+            <div className={classes["checkbox"]}>
+              <input type="checkbox" id="rememberMe"></input>
+              <label htmlFor="rememberMe">Remember Me</label>
+            </div>
+            <a href="./"> Forgot password</a>
+          </div>
           <div className={classes.actions}>
             <Button disabled={uiCtx.isLoading} type="submit">
               {isLogin && "Login"}
@@ -183,11 +198,26 @@ const LoginAndRegister = (props) => {
         </form>
         <div className={classes.actions} onClick={() => setIsLogin(!isLogin)}>
           <span className={classes["span-btn"]}>
-            {isLogin && "Create Account"}
-            {!isLogin && "Login"}
+            {isLogin && (
+              <div>
+                Need to create account? <span>Sign up</span>
+              </div>
+            )}
+            {!isLogin && (
+              <div>
+                Already have a account? <span>Sign in</span>
+              </div>
+            )}
           </span>
         </div>
       </Card>
+      <div className={classes["social-login"]}>
+        <div>Other login platform</div>
+        <div className={classes.btn}>
+          <FaFacebook />
+          <FaGoogle />
+        </div>
+      </div>
     </Fragment>
   );
 };

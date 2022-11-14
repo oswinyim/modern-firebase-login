@@ -1,49 +1,36 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 .control {
-  margin: 1rem 0;
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
+  position: relative;
 }
 
-.control label,
-.control input {
-  display: block;
+.icon {
+  position: absolute;
+  top: 0.82rem;
+  left: 1.4rem;
+  font-size: 1.3rem;
+  opacity: 0.4;
 }
 
-.control label, label{
-  font-weight: bold;
-  flex: 1;
-  color: #464646;
-  margin-bottom: 0.5rem;
-}
-
-.control input {
-  flex: 3;
-  font: inherit;
-  padding: 0.35rem 0.35rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.control input:focus {
+.input {
+  border: none;
   outline: none;
-  border-color: #528d93;
-  background: #f6dbfc;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 1rem 1.5rem 1rem calc(1rem * 3.5);
+  border-radius: 100px;
+  width: 100%;
+  transition: background 0.5s;
 }
 
-.control.invalid input {
-  border-color: red;
-  background: #fbdada;
+.input:focus {
+  background: white;
 }
-
 .error-message {
   color: red;
   text-align: left;
 }
 
-@media (min-width: 768px) {
-  .control {
-    align-items: center;
-    flex-direction: row;
-  }
+.control.invalid input {
+  border-color: red;
+  background: #fbdada;
 }

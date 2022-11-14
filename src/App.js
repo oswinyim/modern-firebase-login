@@ -1,17 +1,15 @@
 import React, { useContext } from "react";
 
 import LoginAndRegister from "./components/LoginAndRegister/LoginAndRegister";
-import Home from "./components/Home/Home";
-import MainHeader from "./components/MainHeader/MainHeader";
 import AuthContext from "./store/auth-context";
+import Home from "./components/Home/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 
 function App() {
   const ctx = useContext(AuthContext);
-
   return (
     <Router>
-      <MainHeader />
       <main>
         <Routes>
           (
